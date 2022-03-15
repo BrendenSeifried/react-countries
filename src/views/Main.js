@@ -1,8 +1,21 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import getCountries from '../services/Country';
 
 export default function Main() {
+  useEffect(()=>{
+    const fetchCountries = async () => {
+      const response = await getCountries();
+      console.log(response);
+    //   setBlogs(response);
+    };
+    fetchCountries ();
+
+  }, []);
   return (
-    <div>Main</div>
+    <div>Main
+        
+
+    </div>
   );
 }
 
