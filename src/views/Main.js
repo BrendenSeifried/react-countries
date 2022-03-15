@@ -5,7 +5,6 @@ export default function Main() {
   useEffect(()=>{
     const fetchCountries = async () => {
       const response = await getCountries();
-      console.log(response);
     //   setBlogs(response);
     };
     fetchCountries ();
