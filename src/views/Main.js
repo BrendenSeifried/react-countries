@@ -6,8 +6,12 @@ export default function Main() {
   const [countries, setCountries] = useState ([]);
   useEffect(()=>{
     const fetchCountries = async () => {
-      const response = await getCountries();
-      setCountries(response);
+      try {
+        const response = await getCountries();
+        setCountries(response);
+      } catch (e) {
+        alert(e.message);
+      }
     };
     fetchCountries();
 
