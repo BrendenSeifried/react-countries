@@ -1,7 +1,14 @@
 import React from 'react';
 
-export default function Dropdown() {
+export default function Dropdown({ continent }) {
   return (
-    <div>Dropdown</div>
+    <div>Dropdown
+      <select>
+        {continent.map((stuff) => (
+          <option key={stuff}>{stuff}</option>
+          
+        ))}
+      </select>
+    </div>
   );
 }
