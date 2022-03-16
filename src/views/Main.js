@@ -5,7 +5,8 @@ import Dropdown from '../components/Dropdown/Dropdown';
 
 export default function Main() {
   const [countries, setCountries] = useState ([]);
-  const continent = ['Asia', 'Africa', 'North America', 'South America', 'Antarctica', 'Europe', ' Australia'];
+  const continent = ['All', 'Asia', 'Africa', 'North America', 'South America', 'Antarctica', 'Europe', ' Australia'];
+  const [cont, setCont] = useState ('All');
   useEffect(()=>{
     const fetchCountries = async () => {
       try {
@@ -19,19 +20,15 @@ export default function Main() {
 
   }, []);
 
-  // const filterCats = () => {
-  //   return cats.filter((cat) => cat.type === type || type === 'All');
-  // };
-
-  // const filterContinent = () => {
-  //   return countries.filter((cont) => cont.continent === continent);
-  // };
+  const filterContinent = () => {
+    return countries.filter((whatever) => cont === whatever.continent);
+  };
 
   return (
     <div>
       <div>
-        {/* {filterContinent().map((cont) => )} */}
-        <Dropdown continent={continent}/>
+        <Dropdown key={continent} continent={continent} setCont={setCont}/>
+
       </div>
       <div className='main-place'>Main
         {countries.map((data) => (
