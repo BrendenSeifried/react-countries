@@ -2,19 +2,28 @@ import React, { useEffect, useState } from 'react';
 import getCountries from '../services/Country';
 import CountryCard from '../components/CountryCard/CountryCard';
 import Dropdown from '../components/Dropdown/Dropdown';
+import './Main.css';
 
 export default function Main() {
   const [countries, setCountries] = useState ([]);
-  const continent = ['All', 'Asia', 'Africa', 'North America', 'South America', 'Antarctica', 'Europe', ' Australia'];
-  const [cont, setCont] = useState ('All');
+  const continent = ['Asia', 'Africa', 'North America', 'South America', 'Antarctica', 'Europe', ' Australia'];
+  const [cont, setCont] = useState ('Asia');
+  const [load, setLoad] = useState(true);
+
   useEffect(()=>{
     const fetchCountries = async () => {
+
+     
+
       try {
         const response = await getCountries();
         setCountries(response);
       } catch (e) {
         alert(e.message);
       }
+      setTimeout(() => {
+        setLoad(false);
+      }, 1000);
     };
     fetchCountries();
 
@@ -23,6 +32,9 @@ export default function Main() {
   const filterContinent = () => {
     return countries.filter((whatever) => cont === whatever.continent);
   };
+
+  if (load) return <div className='loader'>Buffering</div>;
+
 
   return (
     <div>
@@ -40,4 +52,3 @@ export default function Main() {
   );
 }
 
-//testing supabase secrets

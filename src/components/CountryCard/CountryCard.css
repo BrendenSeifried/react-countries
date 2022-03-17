@@ -1,0 +1,8 @@
+.country-card{
+     display:flex;
+    justify-content:space-evenly;
+    flex-wrap: wrap;
+    align-items: center;
+    flex-direction: column;
+    margin: 2px;
+}
