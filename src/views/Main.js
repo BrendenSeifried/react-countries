@@ -30,8 +30,8 @@ export default function Main() {
         <Dropdown key={continent} continent={continent} setCont={setCont}/>
 
       </div>
-      <div className='main-place'>Main
-        {countries.map((data) => (
+      <div className='main-place'>
+        {filterContinent().map((data) => (
           <CountryCard key={data.id} name={data.name} iso2={data.iso2} />
         ))}
       </div>
