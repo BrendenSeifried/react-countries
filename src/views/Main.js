@@ -6,7 +6,7 @@ import './Main.css';
 
 export default function Main() {
   const [countries, setCountries] = useState ([]);
-  const continent = ['Asia', 'Africa', 'North America', 'South America', 'Antarctica', 'Europe', ' Australia'];
+  const continent = ['Asia', 'Africa', 'North America', 'South America', 'Antarctica', 'Europe', 'Oceania'];
   const [cont, setCont] = useState ('Asia');
   const [load, setLoad] = useState(true);
 
@@ -30,15 +30,16 @@ export default function Main() {
   }, []);
 
   const filterContinent = () => {
+    
     return countries.filter((whatever) => cont === whatever.continent);
   };
-
+  console.log(filterContinent());
   if (load) return <div className='loader'>Buffering</div>;
 
 
   return (
     <div>
-      <div>
+      <div className='dropdown'>
         <Dropdown key={continent} continent={continent} setCont={setCont}/>
 
       </div>
