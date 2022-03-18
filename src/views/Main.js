@@ -33,7 +33,6 @@ export default function Main() {
     
     return countries.filter((whatever) => cont === whatever.continent);
   };
-  console.log(filterContinent());
   if (load) return <div className='loader'>Buffering</div>;
 
 
